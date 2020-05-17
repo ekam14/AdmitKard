@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="text/javascript">
+      window.onload = function () {
+        var url = document.location.href,
+            params = url.split('?')[1].split('&'),
+            data = {}, tmp;
+        for (var i = 0, l = params.length; i < l; i++) {
+             tmp = params[i].split('=');
+             data[tmp[0]] = tmp[1];
+        }
+        document.getElementById('phoneNumber').textContent = data.name;
+    }
+    </script>
+    <title>AdmitKard</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Please verify Mobile number</h3>
+      <h2><small>An OTP is sent to <span id="phoneNumber"></span></small></h2>
+      <div class="link"><a href="./index.html">Change Phone Number</a></div>
+      <form class="form-group">
+        <input id="otp" class="form-control mobilePhone" type="password" placeholder="Enter your OTP">
+      </form>
+      <button type="submit" id="verify" class="btn btn-block btn-danger">Verify OTP</button>
+      <div class="noOTP">
+        <p>Didn't receive the code? <a href="./otp.html" id="resend">Resend</a></p>
+      </div>
+    </div>
+    <script type="text/javascript" src="./otp.js"></script>
+  </body>
+</html>
